@@ -1,0 +1,84 @@
+app:
+  jwt:
+    accessToken:
+      expiration: 90000000
+      header: accessToken
+    claims:
+      refresh:
+        name: Refresh
+    expiration: 900000000
+    header:
+      prefix: Bearer
+    id: id
+    refreshToken:
+      expiration: 360000000
+      header: refreshToken
+    roles:
+      name: authorities
+    secret: jwtSecretKey
+    username: username
+  token:
+    email:
+      verification:
+        duration: 3600000
+    password:
+      reset:
+        duration: 3600000
+    refresh:
+      duration: 2592000000
+  velocity:
+    templates:
+      location: /templates/
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway-service
+  # make the services id call with lowercase
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  datasource:
+    password: ''
+    testWhileIdle: true
+    url: jdbc:mysql://localhost:3306/gateway_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false?useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    validationQuery: SELECT 1
+  http:
+    multipart:
+      max-file-size: 100000MB
+      max-request-size: 100000MB
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+  security:
+    user:
+      name: eureka
+      password: password
+  servlet:
+    multipart:
+      max-file-size: 100000MB
+      max-request-size: 100000MB

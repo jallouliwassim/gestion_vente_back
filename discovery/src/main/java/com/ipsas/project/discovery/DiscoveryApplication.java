@@ -12,5 +12,6 @@ public class DiscoveryApplication {
 		SpringApplication.run(DiscoveryApplication.class, args);
 		System.out.println("************* eureka service is running ! *************");
 	}
+	
 
 }
