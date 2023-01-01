@@ -1,14 +1,12 @@
-package com.ipsas.projet.clients.entities;
+package com.ipsas.projet.produits.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.ipsas.projet.clients.entities.enumeration.Genre;
-
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,14 +17,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Client {
+public class Produit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom, prenom, telephone, adresse;
-    private Integer cin;
+    private String nom, designation, reference, adresse;
+    private Integer quantite;
+    private float prixHT, prixTVA, prixTTC;
 
-    @Enumerated(EnumType.STRING)
-    private Genre genre;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Taxe taxe;
 }

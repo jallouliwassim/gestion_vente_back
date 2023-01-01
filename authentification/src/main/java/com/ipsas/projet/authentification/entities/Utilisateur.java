@@ -1,8 +1,9 @@
 package com.ipsas.projet.authentification.entities;
 
 import java.util.Collection;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Utilisateur {
 	private long id;
 	private String nom, prenom, email, password;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	private Collection<Role> roles;
 
 }

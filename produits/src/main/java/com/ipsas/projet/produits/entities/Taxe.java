@@ -1,4 +1,4 @@
-package com.ipsas.projet.clients.entities;
+package com.ipsas.projet.produits.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.ipsas.projet.clients.entities.enumeration.Genre;
+import com.ipsas.projet.produits.entities.enumeration.TypeTaxe;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,14 +19,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Client {
+public class Taxe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom, prenom, telephone, adresse;
-    private Integer cin;
-
     @Enumerated(EnumType.STRING)
-    private Genre genre;
+    private TypeTaxe type;
+    private float valeur;
+
 }
