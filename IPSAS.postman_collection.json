@@ -11,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/clients-service/api/clients",
+					"raw": "http://localhost:9090/clients-service/api/clients",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"clients-service",
 						"api",
@@ -41,12 +41,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/clients-service/api/clients",
+					"raw": "http://localhost:9090/clients-service/api/clients",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"clients-service",
 						"api",
@@ -62,14 +62,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/authetification-service/roles",
+					"raw": "http://localhost:9090/authetification-service/api/roles",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"authetification-service",
+						"api",
 						"roles"
 					]
 				}
@@ -91,12 +92,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/authetification-service/api/utilisateurs",
+					"raw": "http://localhost:9090/authetification-service/api/utilisateurs",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"authetification-service",
 						"api",
@@ -121,12 +122,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/authetification-service/api/utilisateurs/3",
+					"raw": "http://localhost:9090/authetification-service/api/utilisateurs/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"authetification-service",
 						"api",
@@ -143,12 +144,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/authetification-service/api/utilisateurs",
+					"raw": "http://localhost:9090/authetification-service/api/utilisateurs",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"authetification-service",
 						"api",
@@ -164,12 +165,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/authetification-service/api/utilisateurs/3",
+					"raw": "http://localhost:9090/authetification-service/api/utilisateurs/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"authetification-service",
 						"api",
@@ -186,12 +187,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/produits-service/api/taxes",
+					"raw": "http://localhost:9090/produits-service/api/taxes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"produits-service",
 						"api",
@@ -216,12 +217,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/produits-service/api/taxes",
+					"raw": "http://localhost:9090/produits-service/api/taxes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"produits-service",
 						"api",
@@ -246,12 +247,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/produits-service/api/produits",
+					"raw": "http://localhost:9090/produits-service/api/produits",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"produits-service",
 						"api",
@@ -279,12 +280,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/produits-service/api/produits",
+					"raw": "http://localhost:9090/produits-service/api/produits",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"produits-service",
 						"api",
@@ -309,12 +310,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/factures-service/api/factures",
+					"raw": "http://localhost:9090/factures-service/api/factures",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"factures-service",
 						"api",
@@ -342,12 +343,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/factures-service/api/factures",
+					"raw": "http://localhost:9090/factures-service/api/factures",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"factures-service",
 						"api",
@@ -375,12 +376,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/factures-service/api/factures/9",
+					"raw": "http://localhost:9090/factures-service/api/factures/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"factures-service",
 						"api",
@@ -406,12 +407,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/factures-service/api/factures/8",
+					"raw": "http://localhost:9090/factures-service/api/factures/8",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"factures-service",
 						"api",
@@ -440,12 +441,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/reglements-service/api/reglements",
+					"raw": "http://localhost:9090/reglements-service/api/reglements",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"reglements-service",
 						"api",
@@ -470,12 +471,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/reglements-service/api/reglements",
+					"raw": "http://localhost:9090/reglements-service/api/reglements",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9090",
 					"path": [
 						"reglements-service",
 						"api",
