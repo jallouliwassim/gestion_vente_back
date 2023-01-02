@@ -1,7 +1,6 @@
-package com.ipsas.projet.produits.web;
+package com.ipsas.projet.factures.web;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,45 +12,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.ipsas.projet.produits.entities.Produit;
-import com.ipsas.projet.produits.services.ProduitService;
-import com.ipsas.projet.produits.utils.AppConstants;
+import com.ipsas.projet.factures.entities.Facture;
+import com.ipsas.projet.factures.services.FactureService;
+import com.ipsas.projet.factures.utils.AppConstants;
 
 @RestController
-@RequestMapping("/api/produits")
-public class ProduitController {
+@RequestMapping("/api/factures")
+public class FactureController {
 
     @Autowired
-    ProduitService produitService;
+    FactureService factureService;
 
     @PostMapping
-    public Produit save(@RequestBody Produit produit) {
-        return this.produitService.save(produit);
+    public Facture save(@RequestBody Facture facture) {
+        return this.factureService.save(facture);
     }
 
     @PutMapping("/{id}")
-    public Produit update(@PathVariable("id") Long id, @RequestBody Produit produit) {
-        return this.produitService.update(id, produit);
+    public Facture update(@PathVariable("id") Long id, @RequestBody Facture facture) {
+        return this.factureService.update(id, facture);
     }
 
     @GetMapping
-    public Page<Produit> findAll(
+    public Page<Facture> findAll(
             @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
             @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
             @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy) {
 
-        return this.produitService.findAll(pageNo, pageSize, sortBy);
+        return this.factureService.findAll(pageNo, pageSize, sortBy);
     }
 
     @GetMapping("/{id}")
-    public Optional<Produit> findOne(@PathVariable("id") Long id) {
+    public Optional<Facture> findOne(@PathVariable("id") Long id) {
         // TODO Auto-generated method stub
-        return this.produitService.findOne(id);
+        return this.factureService.findOne(id);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-        this.produitService.delete(id);
+        this.factureService.delete(id);
     }
 
 }
