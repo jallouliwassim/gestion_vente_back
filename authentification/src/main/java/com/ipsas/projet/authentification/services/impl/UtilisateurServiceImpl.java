@@ -51,4 +51,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		this.userRepository.deleteById(id);
 	}
 
+	@Override
+	public Utilisateur getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.userRepository.findByEmail(email);
+	}
+
 }

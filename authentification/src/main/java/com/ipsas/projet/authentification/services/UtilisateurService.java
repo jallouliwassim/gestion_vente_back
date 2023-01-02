@@ -24,7 +24,14 @@ public interface UtilisateurService {
      */
     Utilisateur update(Long id, Utilisateur utilisateur);
 
-
+    /**
+     * Get a utilisateur by email.
+     *
+     * @param utilisateur email.
+     * @return the searched entity.
+     */
+    Utilisateur getUserByEmail(String email);
+    
     /**
      * Get all the utilisateurs.
      *

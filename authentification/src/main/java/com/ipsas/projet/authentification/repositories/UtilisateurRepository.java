@@ -7,4 +7,5 @@ import com.ipsas.projet.authentification.entities.Utilisateur;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 
+	Utilisateur findByEmail(String email);
 }
