@@ -32,7 +32,7 @@ public class Facture {
     
     @Temporal(TemporalType.DATE)
     private Date date;
-    private String reference, note;
+    private String reference, note, devise;
     private float prixHT, prixTVA, prixTTC;
 
     @OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST}, fetch = FetchType.EAGER, mappedBy = "facture")
