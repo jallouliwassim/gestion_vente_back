@@ -38,18 +38,10 @@ public class FactureServiceImpl implements FactureService {
     @Override
     public Facture save(Facture facture) {
         // TODO Auto-generated method stub
-    	var wrapper = new Object(){ float  tva = 0; float ht = 0; float ttc = 0; };
-
-    	facture.getLignes().stream().forEach(ligne -> {
-    		
-    		wrapper.tva += ligne.getPrixTVA();
-    		wrapper.ht += ligne.getPrixHT();
-    		wrapper.ttc += ligne.getPrixTTC();
-    	});
     	
-    	facture.setPrixHT(wrapper.ht);
-    	facture.setPrixTVA(wrapper.tva);
-    	facture.setPrixTTC(wrapper.ttc);
+    	facture.getLignes().stream().forEach(ligne -> {
+    		ligne.setId(null);
+    	});
     	
     	Collection<LigneFacture> ligneFactures = facture.getLignes();
 	   	 Facture saved = this.factureRepository.save(facture);

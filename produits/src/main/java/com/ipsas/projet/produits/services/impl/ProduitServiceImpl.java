@@ -1,5 +1,6 @@
 package com.ipsas.projet.produits.services.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -72,5 +73,11 @@ public class ProduitServiceImpl implements ProduitService {
         // TODO Auto-generated method stub
         this.produitRepository.deleteById(id);
     }
+
+	@Override
+	public List<Produit> getAllZeroStock() {
+		// TODO Auto-generated method stub
+		return this.produitRepository.getAllZeroStock();
+	}
 
 }

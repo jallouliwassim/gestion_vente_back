@@ -1,5 +1,6 @@
 package com.ipsas.projet.produits.services;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import com.ipsas.projet.produits.entities.Produit;
@@ -46,4 +47,10 @@ public interface ProduitService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+    
+    /**
+     * Get All products with 0 quantity
+     * @return
+     */
+    List<Produit> getAllZeroStock();
 }

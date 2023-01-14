@@ -33,9 +33,9 @@ public class Facture {
     @Temporal(TemporalType.DATE)
     private Date date;
     private String reference, note, devise;
-    private float prixHT, prixTVA, prixTTC;
+    private float prixHT, prixTVA, prixTTC, reste;
 
-    @OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST}, fetch = FetchType.EAGER, mappedBy = "facture")
+    @OneToMany(cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER, mappedBy = "facture")
     @JsonIgnoreProperties({"facture"})
     private Collection<LigneFacture> lignes;
     

@@ -24,6 +24,7 @@ public class Taxe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nom;
     @Enumerated(EnumType.STRING)
     private TypeTaxe type;
     private float valeur;

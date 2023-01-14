@@ -1,5 +1,6 @@
 package com.ipsas.projet.produits.web;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,12 @@ public class ProduitController {
             @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy) {
 
         return this.produitService.findAll(pageNo, pageSize, sortBy);
+    }
+    
+    @GetMapping("/repture")
+    public List<Produit> findRepture() {
+
+        return this.produitService.getAllZeroStock();
     }
 
     @GetMapping("/{id}")
