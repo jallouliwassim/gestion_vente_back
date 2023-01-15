@@ -10,8 +10,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import com.ipsas.projet.reglements.entities.Facture;
 import com.ipsas.projet.reglements.entities.Reglement;
 import com.ipsas.projet.reglements.repositories.ReglementRepository;
+import com.ipsas.projet.reglements.services.FactureService;
 import com.ipsas.projet.reglements.services.ReglementService;
 
 @Service
@@ -20,10 +23,16 @@ public class ReglementServiceImpl implements ReglementService {
 	
 	@Autowired
 	ReglementRepository reglementRepository;
+	
+	@Autowired
+	FactureService factureService;
 
 	@Override
 	public Reglement save(Reglement reglement) {
 		// TODO Auto-generated method stub
+		Facture facture = this.factureService.findFacturetById(reglement.getFactureId());
+		facture.setReste( facture.getReste() - reglement.getMontant() );
+		this.factureService.updateFacturetById(facture.getId(), facture);
 		return this.reglementRepository.save(reglement);
 	}
 

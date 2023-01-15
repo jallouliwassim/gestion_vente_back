@@ -9,5 +9,5 @@ import com.ipsas.projet.factures.entities.Produit;
 public interface ProduitService {
 
 	@GetMapping(path = "/api/produits/{id}")
-	Produit findProduitById(@PathVariable("id") Long id);
+	public Produit findProduitById(@PathVariable("id") Long id);
 }

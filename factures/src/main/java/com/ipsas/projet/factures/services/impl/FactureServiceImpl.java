@@ -47,6 +47,7 @@ public class FactureServiceImpl implements FactureService {
     	Collection<LigneFacture> ligneFactures = facture.getLignes();
 	   	 Facture saved = this.factureRepository.save(facture);
 	   	
+	   	 facture.setReste(facture.getPrixTTC());
 	   	ligneFactures.forEach(ligne -> {
 	   		ligne.setFacture(saved);
 	   		this.ligneFactureService.save(ligne);

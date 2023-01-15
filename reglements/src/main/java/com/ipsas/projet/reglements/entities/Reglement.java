@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
 import com.ipsas.projet.reglements.entities.enumeration.TypeReglement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +35,9 @@ public class Reglement {
 
     @Enumerated(EnumType.STRING)
     private TypeReglement type;
+    
+    @Transient
+    private Facture facture;
     
     private Long factureId;
 }
