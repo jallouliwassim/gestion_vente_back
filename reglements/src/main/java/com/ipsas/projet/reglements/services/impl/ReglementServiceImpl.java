@@ -32,7 +32,8 @@ public class ReglementServiceImpl implements ReglementService {
 		// TODO Auto-generated method stub
 		Facture facture = this.factureService.findFacturetById(reglement.getFactureId());
 		facture.setReste( facture.getReste() - reglement.getMontant() );
-		this.factureService.updateFacturetById(facture.getId(), facture);
+		this.factureService.updateFacturetById(facture.getId(), reglement.getMontant());
+		System.out.println(facture);
 		return this.reglementRepository.save(reglement);
 	}
 

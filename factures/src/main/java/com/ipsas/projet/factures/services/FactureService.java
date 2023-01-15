@@ -57,4 +57,6 @@ public interface FactureService {
     
     List<Facture> allPayee();
     List<Facture> allNonPayee();
+    
+    Facture updateReste(Long id, float montant ) ;
 }

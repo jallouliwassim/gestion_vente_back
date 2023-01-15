@@ -14,6 +14,6 @@ public interface FactureService {
 	Facture findFacturetById(@PathVariable("id") Long id);
 	
 
-	@PutMapping(path = "/api/factures/{id}")
-	Facture updateFacturetById(@PathVariable("id") Long id, Facture facture);
+	@PutMapping(path = "/api/factures/{id}/montant/{montant}")
+	Facture updateFacturetById(@PathVariable("id") Long id, @PathVariable("montant") float montant);
 }

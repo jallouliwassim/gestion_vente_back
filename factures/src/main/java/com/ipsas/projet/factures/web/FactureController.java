@@ -31,7 +31,15 @@ public class FactureController {
 
     @PutMapping("/{id}")
     public Facture update(@PathVariable("id") Long id, @RequestBody Facture facture) {
+    	System.out.println("********************");
+    	System.out.println(facture);
         return this.factureService.update(id, facture);
+    }
+    
+    @PutMapping("/{id}/montant/{montant}")
+    public Facture update(@PathVariable("id") Long id, @PathVariable("montant") float montant) {
+    	System.out.println("********************");
+        return this.factureService.updateReste(id, montant);
     }
 
     @GetMapping

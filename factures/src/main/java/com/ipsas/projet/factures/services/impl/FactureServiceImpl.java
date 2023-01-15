@@ -43,11 +43,11 @@ public class FactureServiceImpl implements FactureService {
     	facture.getLignes().stream().forEach(ligne -> {
     		ligne.setId(null);
     	});
-    	
+	   	 facture.setReste(facture.getPrixTTC());
+
     	Collection<LigneFacture> ligneFactures = facture.getLignes();
 	   	 Facture saved = this.factureRepository.save(facture);
 	   	
-	   	 facture.setReste(facture.getPrixTTC());
 	   	ligneFactures.forEach(ligne -> {
 	   		ligne.setFacture(saved);
 	   		this.ligneFactureService.save(ligne);
@@ -58,20 +58,18 @@ public class FactureServiceImpl implements FactureService {
     @Override
     public Facture update(Long id, Facture facture) {
         // TODO Auto-generated method stub
-    	var wrapper = new Object(){ float  tva = 0; float ht = 0; float ttc = 0; };
-
-    	facture.getLignes().stream().forEach(ligne -> {
-    		
-    		wrapper.tva += ligne.getPrixTVA();
-    		wrapper.ht += ligne.getPrixHT();
-    		wrapper.ttc += ligne.getPrixTTC();
-    	});
+    	Facture old = this.factureRepository.getOne(id);
     	
-    	facture.setPrixHT(wrapper.ht);
-    	facture.setPrixTVA(wrapper.tva);
-    	facture.setPrixTTC(wrapper.ttc);
-    	facture.setId(id);
+    	old.setReste( old.getReste() - 100 );
         return this.factureRepository.save(facture);
+    }
+    
+    public Facture updateReste(Long id, float montant ) {
+        // TODO Auto-generated method stub
+    	Facture old = this.factureRepository.getOne(id);
+    	
+    	old.setReste( old.getReste() - montant );
+        return this.factureRepository.save(old);
     }
 
     @Override
