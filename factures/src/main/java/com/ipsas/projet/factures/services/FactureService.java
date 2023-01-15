@@ -1,5 +1,6 @@
 package com.ipsas.projet.factures.services;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import com.ipsas.projet.factures.entities.Facture;
@@ -46,4 +47,14 @@ public interface FactureService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+    
+    float clientChiffreAffaireGlobale(long clientId);
+    float clientChiffreAffaireByAnnee(long clientId, int annee);
+    float clientReste(long clientId);
+    List<Facture> clientPayee(long clientId );
+    List<Facture> clientNonPayee(long clientId );
+    
+    
+    List<Facture> allPayee();
+    List<Facture> allNonPayee();
 }

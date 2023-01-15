@@ -1,5 +1,6 @@
 package com.ipsas.projet.factures.web;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,5 +53,46 @@ public class FactureController {
     public void delete(@PathVariable("id") Long id) {
         this.factureService.delete(id);
     }
+    
+    @GetMapping("/clients/{id}/chiffre-affaire")
+	public float clientChiffreAffaireGlobale(@PathVariable("id")  long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureService.clientChiffreAffaireGlobale(clientId);
+	}
+    @GetMapping("/clients/{id}/chiffre-affaire-annee/{annee}")
+	public float clientChiffreAffaireByAnnee(@PathVariable("id")  long clientId, @PathVariable("annee")  int annee) {
+		// TODO Auto-generated method stub
+		return this.factureService.clientChiffreAffaireByAnnee(clientId, annee);
+	}
+
+    @GetMapping("/clients/{id}/reste")
+	public float clientReste(@PathVariable("id") long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureService.clientReste(clientId);
+	}
+
+    @GetMapping("/clients/{id}/liste-payee")
+	public List<Facture> clientPayee(@PathVariable("id") long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureService.clientPayee(clientId);
+	}
+
+    @GetMapping("/clients/{id}/liste-non-payee")
+	public List<Facture> clientNonPayee(@PathVariable("id") long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureService.clientNonPayee(clientId);
+	}
+
+    @GetMapping("/payee")
+	public List<Facture> allPayee() {
+		// TODO Auto-generated method stub
+		return this.factureService.allPayee();
+	}
+
+    @GetMapping("/non-payee")
+	public List<Facture> allNonPayee() {
+		// TODO Auto-generated method stub
+		return this.factureService.allNonPayee();
+	}
 
 }

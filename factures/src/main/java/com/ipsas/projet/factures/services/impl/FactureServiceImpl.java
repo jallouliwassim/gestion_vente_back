@@ -1,6 +1,7 @@
 package com.ipsas.projet.factures.services.impl;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,5 +114,51 @@ public class FactureServiceImpl implements FactureService {
         // TODO Auto-generated method stub
         this.factureRepository.deleteById(id);
     }
+
+	@Override
+	public float clientChiffreAffaireGlobale(long clientId) {
+		// TODO Auto-generated method stub
+		Float result = this.factureRepository.getAllAffairesByClient(clientId);
+		
+		return (result != null) ? result : 0;
+	}
+
+	@Override
+	public float clientChiffreAffaireByAnnee(long clientId, int annee) {
+		// TODO Auto-generated method stub
+		Float result = this.factureRepository.getAllAffairesByClientAndYear(clientId, annee);
+		return (result != null) ? result : 0;
+	}
+
+	@Override
+	public float clientReste(long clientId) {
+		// TODO Auto-generated method stub
+		Float result = this.factureRepository.getClientUnpaid(clientId);;
+		return (result != null) ? result : 0;
+	}
+
+	@Override
+	public List<Facture> clientPayee(long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureRepository.getAllClientPaid(clientId);
+	}
+
+	@Override
+	public List<Facture> clientNonPayee(long clientId) {
+		// TODO Auto-generated method stub
+		return this.factureRepository.getAllClientUnpaid(clientId);
+	}
+
+	@Override
+	public List<Facture> allPayee() {
+		// TODO Auto-generated method stub
+		return this.factureRepository.getAllPaid();
+	}
+
+	@Override
+	public List<Facture> allNonPayee() {
+		// TODO Auto-generated method stub
+		return this.factureRepository.getAllUnpaid();
+	}
 
 }

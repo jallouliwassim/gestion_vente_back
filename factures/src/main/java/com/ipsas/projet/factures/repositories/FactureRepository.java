@@ -11,26 +11,36 @@ import com.ipsas.projet.factures.entities.Facture;
 public interface FactureRepository extends JpaRepository<Facture, Long> {
 
 	@Query("SELECT SUM(f.reste) FROM Facture f")
-	float getUnpaidTotal();
+	Float getUnpaidTotal();
 	
-	@Query("SELECT SUM(f.reste) FROM Facture f WHERE f.clientId = ?1")
-	float getClientUnpaid(long clientId);
+	@Query("SELECT SUM(f.reste) FROM Facture f WHERE f.clientId = ?1 AND f.reste > 0")
+	Float getClientUnpaid(long clientId);
+	
+	@Query("SELECT SUM(f.reste) FROM Facture f WHERE f.clientId = ?1 AND f.reste = 0")
+	Float getClientPaid(long clientId);
 	
 	@Query("SELECT SUM(f.prixTTC) FROM Facture f")
-	float getAllAffaires();
+	Float getAllAffaires();
 	
 	@Query("SELECT SUM(f.prixTTC) FROM Facture f where YEAR(f.date) = ?1")
-	float getAllAffairesByYear();
+	Float getAllAffairesByYear();
 	
-	@Query("SELECT SUM(f.prixTTC) FROM Facture f where clientId = ?1")
-	float getAllAffairesByClient(long clientId);
 	
-	@Query("SELECT SUM(f.prixTTC) FROM Facture f where clientId = ?1 and  YEAR(f.date) = ?2")
-	float getAllAffairesByClientAndYear(long clientId, int year);
+	@Query("SELECT f FROM Facture f where f.reste = 0 AND f.clientId = ?1")
+	List<Facture> getAllClientPaid(long clientId);
 	
-	@Query("SELECT f FROM Facture f where reste = 0")
+	@Query("SELECT f FROM Facture f where f.reste > 0")
+	List<Facture> getAllClientUnpaid(long clientId);
+	
+	@Query("SELECT SUM(f.prixTTC) FROM Facture f where f.clientId = ?1")
+	Float getAllAffairesByClient(long clientId);
+	
+	@Query("SELECT SUM(f.prixTTC) FROM Facture f where f.clientId = ?1 and  YEAR(f.date) = ?2")
+	Float getAllAffairesByClientAndYear(long clientId, int year);
+	
+	@Query("SELECT f FROM Facture f where f.reste = 0")
 	List<Facture> getAllPaid();
 	
-	@Query("SELECT u FROM Facture f where reste > 0")
+	@Query("SELECT f FROM Facture f where f.reste > 0")
 	List<Facture> getAllUnpaid();
 }
